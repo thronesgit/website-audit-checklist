@@ -4,129 +4,126 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Website Redesign Audit Checklist | Tiller Digital</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Website redesign audit checklist</title>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --black:#000;--white:#fff;--orange:#FFA100;--blue:#006FF6;--red:#F43D00;--green:#2BB673;
-  --grey:#666;--rule:#ccc;--control:#8a8a8a;
+  --grey:#666;--rule:#ccc;
   --sans:'bassen','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --serif:'tiempos','Source Serif 4',Georgia,serif;
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpath fill-rule='evenodd' d='m19.0285 2.19256-9.0264 9.02884-9.030603-9.02788 1.414003-1.414424 7.6162 7.613934 7.6124-7.614496z'/%3E%3C/svg%3E");
 }
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;font:16px/1.75 var(--sans);color:var(--black);background:var(--white)}
+html,body{margin:0;background:transparent}
+body{padding:4px;font:16px/1.75 var(--sans);color:var(--black)}
 @media (min-width:900px){body{font-size:18px}}
-.frame{max-width:1156px;margin:0 auto;padding:0 16px}
-@media (min-width:900px){.frame{padding:0 32px}}
-h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:.03em;line-height:1.25}
-a{color:inherit;font-weight:600;text-underline-offset:.3em;text-decoration-thickness:2px}
-:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h2{font-family:var(--serif);font-weight:400;letter-spacing:.03em;line-height:1.25;margin:0}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
-/* Header */
-.head{background:var(--black);color:var(--white);padding:32px 0 64px}
-.head :focus-visible{outline-color:var(--orange)}
-.logo{display:inline-block;width:88px;height:28px}
-.logo img{display:block;width:100%;height:100%}
-h1{font-size:40px;margin:64px 0 16px}
-@media (min-width:900px){h1{font-size:62px}}
-.head p{margin:0;max-width:60ch}
-
-/* Checklist table */
-main.frame{padding-top:48px;padding-bottom:64px}
+/* Checklist */
 table{width:100%;border-collapse:collapse;table-layout:fixed}
 thead th{font:600 16px/1.25 var(--sans);text-align:left;padding:0 16px 16px 0;border-bottom:1px solid var(--black)}
-.col-q{width:40%}.col-a{width:380px}
-.sec-row th{padding:48px 0 16px;border-bottom:1px solid var(--black);text-align:left}
-tbody:first-of-type .sec-row th{padding-top:24px}
-.sec-row h2{font-size:24px;margin:0}
-@media (min-width:900px){.sec-row h2{font-size:36px}}
+thead th:last-child{padding-right:0}
+.col-a{width:168px}.col-n{width:30%}
+.sec th{text-align:left;padding:48px 0 16px;border-bottom:1px solid var(--black)}
+tbody:first-of-type .sec th{padding-top:24px}
+.sec h2{font-size:24px}
+@media (min-width:900px){.sec h2{font-size:36px}}
 .row th,.row td{vertical-align:top;text-align:left;font-weight:400;padding:24px 16px 24px 0;border-bottom:1px solid var(--rule)}
 .row td:last-child{padding-right:0}
-.q{font-weight:600;margin:0 0 4px}
-.d{margin:0;font-size:16px;color:var(--grey)}
-.d a{color:var(--black)}
-fieldset{border:0;margin:0;padding:0;min-width:0}
-.rate{display:flex;flex-wrap:wrap;gap:8px}
-@media (min-width:1024px){.rate{flex-wrap:nowrap}}
-.rate input{position:absolute;opacity:0;width:1px;height:1px}
-.rate label{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px 12px;border:2px solid var(--control);font-size:16px;font-weight:600;line-height:1.25;cursor:pointer}
-.rate label::before{content:'';width:12px;height:12px;border-radius:50%;flex:0 0 auto}
-.rate .g::before{background:var(--green)}.rate .y::before{background:var(--orange)}.rate .r::before{background:var(--red)}.rate .u::before{background:var(--white);box-shadow:inset 0 0 0 2px var(--grey)}
-.rate input:hover+label{border-color:var(--blue)}
-.rate input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
-.rate input:checked+label{border-color:var(--black);background:var(--black);color:var(--white)}
-.nl{display:none}
-textarea{display:block;width:100%;min-height:80px;padding:12px 16px;font:16px/1.5 var(--sans);border:2px solid var(--control);border-radius:0;resize:vertical}
-textarea:focus{border-color:var(--black);outline:none}
-textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.alt{margin:24px 0 0;font-size:16px;color:var(--grey)}
-.alt a{color:var(--black)}
+.q{font-weight:600;margin:0 0 4px;line-height:1.5}
+.d{margin:0;font-size:16px;line-height:1.75;color:var(--grey)}
+.d a{color:var(--black);font-weight:600;text-underline-offset:.3em;text-decoration-thickness:2px}
+.fl{display:none;font-weight:600;font-size:16px;line-height:1.25;margin:0 0 8px}
 
-/* Stack rows on small screens */
-@media (max-width:1023px){
+/* Fields: the site's form fields (48px, square, theme chevron, 2px inset on focus) */
+select,textarea{appearance:none;-webkit-appearance:none;display:block;width:100%;margin:0;border:0;border-radius:0;font:16px/1.25 var(--sans);color:var(--black);background-color:var(--white);box-shadow:inset 0 0 0 1px var(--black)}
+select{height:48px;padding:0 48px 0 12px;cursor:pointer;background-image:var(--arrow);background-repeat:no-repeat;background-position:right 12px center;background-size:20px 12px}
+select[data-v=""]{color:var(--grey)}
+select:not([data-v=""]){padding-left:36px;background-image:var(--dot),var(--arrow);background-repeat:no-repeat;background-position:left 14px center,right 12px center;background-size:12px 12px,20px 12px}
+select[data-v="yes"]{--dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='6' fill='%232BB673'/%3E%3C/svg%3E")}
+select[data-v="partial"]{--dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23FFA100'/%3E%3C/svg%3E")}
+select[data-v="no"]{--dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23F43D00'/%3E%3C/svg%3E")}
+select[data-v="unsure"]{--dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='5' fill='%23fff' stroke='%23666' stroke-width='2'/%3E%3C/svg%3E")}
+select option{color:var(--black)}
+textarea{min-height:96px;padding:14px 12px;line-height:1.5;resize:vertical}
+select:focus,textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--black)}
+select:focus-visible,textarea:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Stack rows when the container is narrow */
+@media (max-width:599px){
   thead{display:none}
-  table,tbody,tr,.row th,.row td,.sec-row th{display:block;width:100%}
+  table,tbody,tr,.row th,.row td,.sec th{display:block;width:100%}
   .row th,.row td{border:0;padding:0 0 16px}
   tr.row{padding:24px 0 8px;border-bottom:1px solid var(--rule)}
-  .rate label{flex:1;justify-content:center}
-  .nl{display:block;font-weight:600;font-size:16px;margin-bottom:4px}
-}
-@media (max-width:479px){
-  .rate label{flex:1 1 calc(50% - 4px)}
+  .fl{display:block}
+  textarea{min-height:72px}
 }
 
-/* Bottom CTA, same build as the site's button */
-.cta{background:var(--black);color:var(--white);padding:64px 0}
-.cta h2{font-size:28px;margin:0 0 32px;max-width:24ch}
-@media (min-width:900px){.cta{padding:96px 0}.cta h2{font-size:48px;max-width:20em}}
-.cta :focus-visible{outline-color:var(--orange)}
-.btn{display:inline-flex;align-items:stretch;background:var(--orange);color:var(--black);font:600 16px/1.25 var(--sans);text-decoration:none;transition:background .25s,color .25s}
-.btn span:first-child{padding:14px 20px;display:flex;align-items:center}
-.btn .icon{width:44px;min-height:44px;margin:2px 2px 2px 0;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center}
-.btn svg{width:17px;height:16px;fill:currentColor}
-.btn:hover{background:var(--blue);color:var(--white)}
-
-@media print{
-  .head{background:none;color:#000;padding:0}.logo img{filter:invert(1)}
-  .cta{background:none;color:#000;padding:16px 0}.btn,.alt{display:none}
-  .rate input:checked+label{background:#fff;color:#000;border-color:#000;font-weight:700}
-  .rate input:checked+label::after{content:'✓'}
-  .rate label::before{print-color-adjust:exact;-webkit-print-color-adjust:exact}
-  textarea{field-sizing:content;resize:none;border-color:#000}
-  tr{break-inside:avoid}
-}
+/* Actions: the site's buttons as they render in white content areas */
+.actions{margin-top:48px;display:grid;gap:48px}
+.cta h2{font-size:24px;margin:0 0 24px;max-width:22em}
+@media (min-width:900px){.cta h2{font-size:36px}}
+.downloads{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.downloads p{margin:0;font-weight:600;font-size:16px;width:100%}
+.btn{position:relative;display:inline-flex;align-items:stretch;padding:0;border:0;border-radius:0;cursor:pointer;font:600 16px/1.25 var(--sans);text-decoration:none;color:var(--white);background:var(--blue);transition:color .25s,background .25s,box-shadow .25s}
+.btn .text{display:flex;align-items:center;padding:14px 20px}
+.btn .icon{position:relative;flex:0 0 auto;width:44px;min-height:44px;margin:2px 2px 2px 0;overflow:hidden;background:var(--white);color:var(--black)}
+.btn .icon svg{position:absolute;top:50%;left:50%;width:17px;height:16px;fill:currentColor;transform:translate(-50%,-50%);transition:left .25s,top .25s}
+.btn .icon svg+svg{left:-50%}
+.btn:hover .icon svg{left:150%}
+.btn:hover .icon svg+svg{left:50%}
+.btn.dl .icon svg{transform:translate(-50%,-50%) rotate(90deg)}
+.btn.dl .icon svg+svg{left:50%;top:-50%}
+.btn.dl:hover .icon svg{left:50%;top:150%}
+.btn.dl:hover .icon svg+svg{top:50%}
+.btn:hover{background:var(--black)}
+.btn.secondary{color:var(--black);background:transparent;box-shadow:inset 0 0 0 2px var(--black)}
+.btn.secondary .text{border-right:2px solid currentColor}
+.btn.secondary .icon{margin:0;width:48px;background:transparent;color:currentColor}
+.btn.secondary:hover{color:var(--white);background:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+.btn[aria-busy="true"]{cursor:progress;opacity:.7}
+.status{margin:0;font-size:14px;color:var(--grey);min-height:1.5em;width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<header class="head">
-  <div class="frame">
-    <a class="logo" href="https://tillerdigital.com/"><img src="tiller.svg" alt="Tiller Digital" width="88" height="28"></a>
-    <h1>Website redesign audit checklist</h1>
-    <p>Refer to our guide, <a href="https://tillerdigital.com/guides/website-audit-checklist-20-questions-to-ask-before-a-website-redesign/">20 questions to ask before a website redesign</a>, for more context on how to evaluate each question.</p>
-  </div>
-</header>
-
-<main class="frame">
-  <table id="checklist">
-    <thead><tr><th class="col-q" scope="col">Questions</th><th class="col-a" scope="col">Assessment</th><th scope="col">Assessment notes</th></tr></thead>
+<form id="checklist" onsubmit="return false">
+  <table>
+    <thead><tr><th scope="col">Questions</th><th class="col-a" scope="col">Assessment</th><th class="col-n" scope="col" id="nh">Assessment notes</th></tr></thead>
   </table>
-  <p class="alt">Need it offline? <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/copy" target="_blank" rel="noopener">Copy the Google Sheet ↗<span class="sr-only"> (opens in a new tab)</span></a> or <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/export?format=xlsx">download the .xlsx</a>.</p>
-</main>
-
-<section class="cta">
-  <div class="frame">
-    <h2>Seeing a lot of red and yellow? Let’s talk about options for getting you to green.</h2>
-    <a class="btn" href="https://tillerdigital.com/lets-talk/"><span>Book a Call</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+  <div class="actions">
+    <div class="downloads">
+      <p id="dl-label">Download your checklist</p>
+      <button type="button" class="btn secondary dl" data-dl="pdf" aria-describedby="dl-label"><span class="text">PDF</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></button>
+      <button type="button" class="btn secondary dl" data-dl="xlsx" aria-describedby="dl-label"><span class="text">XLSX</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></button>
+      <p class="status" id="dl-status" role="status"></p>
+    </div>
+    <div class="cta">
+      <h2>Seeing a lot of red and yellow? Let’s talk about options for getting you to green.</h2>
+      <a class="btn" href="https://tillerdigital.com/lets-talk/" target="_top"><span class="text">Book a Call</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+    </div>
   </div>
-</section>
+</form>
 
 <script>
 (function(){
+  'use strict';
+  /* The site's own fonts only load from tillerdigital.com (no CORS), so only ask for them there. */
+  if(/(^|\.)tillerdigital\.com$/.test(location.hostname)){
+    var fs=document.createElement('style');
+    fs.textContent="@font-face{font-family:'bassen';src:url(/wp-content/themes/wp-tiller-2025/assets/fonts/Bassen-Regular-Min.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'bassen';src:url(/wp-content/themes/wp-tiller-2025/assets/fonts/Bassen-SemiBold-Min.woff2) format('woff2');font-weight:600;font-display:swap}@font-face{font-family:'tiempos';src:url(/wp-content/themes/wp-tiller-2025/assets/fonts/Tiempos-Regular-Min.woff2) format('woff2');font-weight:400;font-display:swap}";
+    document.head.appendChild(fs);
+  }
+  var TITLE='Website redesign audit checklist';
+  var CTA_TEXT='Seeing a lot of red and yellow? Let’s talk about options for getting you to green.';
+  var CTA_URL='https://tillerdigital.com/lets-talk/';
+  var LOGO='<svg fill="none" height="112" viewBox="0 0 88 28" width="352" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h88v28h-88z"/></clipPath><g clip-path="url(#a)"><path clip-rule="evenodd" d="m11.5025 8.95066c.2699 0 .3741.35078.1486.49856l-3.42846 2.25318c-.10245.0671-.22015.1072-.34222.1167l-1.43889.1136c-.13996.0101-.24845.1264-.24889.2667v9.8739c0 2.3388 2.086 2.5325 4.67836 1.7399.0819-.0243.1705-.0085.239.0427.0685.0511.1087.1316.1086.2171v.98c0 .1789-.077.35-.2154.4643-1.37667 1.1387-3.33823 2.205-5.85589 2.205-5.444448 0-5.14422574-5.6606-5.14422574-5.6606v-13.97515c-.00000582-.0914.04586044-.17671.12211074-.22711l5.646665-3.70922c.08357-.05483.19046-.05945.27845-.01205s.14293.13921.14311.23916v4.30111c0 .15089.12133.27222.27144.27222zm5.8295-8.75933c1.8224 0 3.2997 1.47734 3.2997 3.29972 0 1.82239-1.4773 3.29972-3.2997 3.29972s-3.2997-1.47733-3.2997-3.29972c0-1.82238 1.4773-3.29972 3.2997-3.29972zm2.6732 9.02844c.0836-.05482.1905-.05945.2784-.01205.088.04741.143.13922.1432.23916v17.72712c0 .1503-.1219.2722-.2723.2722h-5.6459c-.1503 0-.2722-.1219-.2722-.2722v-13.902c0-.1633.0825-.3158.2194-.406zm11.7087-7.69222c.0836-.0549.1907-.05946.2787-.01186.0881.04759.1429.13966.1428.23975v25.41856c0 .1503-.1219.2722-.2722.2722h-5.6459c-.1503 0-.2722-.1219-.2722-.2722v-21.59345c0-.16333.0824-.31655.2185-.406l5.5503-3.64622zm52.7131 19.59535c1.8221 0 3.2993 1.4771 3.2993 3.2993s-1.4772 3.2994-3.2993 3.2994c-1.8222 0-3.2994-1.4772-3.2994-3.2994s1.4772-3.2993 3.2994-3.2993zm-40.9632-19.59457c.0835-.05483.1904-.05945.2784-.01205s.1429.13921.1431.23916v25.41776c.0002.0724-.0284.1418-.0795.193-.051.0512-.1204.08-.1927.08h-5.6451c-.1504 0-.2722-.1219-.2722-.2722v-21.59423c0-.16333.0816-.315.2185-.40444l5.5495-3.64778zm40.8667 11.19227c.0651.0553.1004.138.0954.2233-.0051.0854-.0499.1633-.121.2107l-4.3735 2.8738c-.1091.0716-.2537.0556-.3445-.0381l-2.261-2.3364c-.1819-.1866-.4704-.2183-.6884-.0755-.8924.5837-1.4302 1.5781-1.4303 2.6445v10.9511c0 .1503-.1219.2722-.2722.2722h-5.6459c-.1504 0-.2722-.1219-.2722-.2722v-13.9168c0-.1633.0832-.3158.2201-.406l5.5494-3.63143c.0837-.05447.1904-.05879.2782-.01125s.1425.13931.1426.23914v1.94054c.0001.0998.0548.1916.1426.2392.0878.0475.1945.0432.2782-.0113l2.5029-1.63177c.9266-.60462 2.1373-.54338 2.9983.15167l3.2013 2.5838zm-27.4921-3.77616c3.5545 0 6.0853 1.72276 7.462 4.32216.6145 1.1612.9365 2.6685.9816 4.0133.0021.0869-.0312.171-.0921.233-.061.062-.1445.0966-.2315.096l-10.4175.0008c-.0784-.0005-.1531.033-.205.0917-.0518.0587-.0758.137-.0657.2147.4775 3.444 2.7409 7.7661 10.1764 5.859.0817-.022.1689-.0048.2361.0466.0672.0513.1067.131.1069.2155v.9862c.0011.1849-.0826.36-.2271.4753-1.7375 1.3657-4.2303 2.2221-7.3609 2.2221-5.4467 0-9.3776-4.2031-9.3776-9.3878 0-6.6181 5.2002-9.38778 9.0144-9.38778zm2.2423 6.20436c.1487-.0116.2603-.1406.2505-.2894-.1968-2.8482-1.0057-4.3921-2.5589-4.3921-1.6419 0-2.4274 1.6979-2.5791 4.76-.0034.0779.0268.1535.0829.2076.056.0541.1326.0816.2103.0755z" fill="#000" fill-rule="evenodd"/></g></svg>';
   var SECTIONS=[
     ['Website strategy and pipeline performance',[
       ['Have you established your performance baselines and revenue metrics?','Benchmark traffic, conversion rates, pipeline contribution, and revenue attribution to understand what’s working and where your website is falling short.'],
@@ -143,39 +140,198 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
     ['User experience and visual UI design',[
       ['Does your visual identity set you apart in a sea of software sameness?','Typography, color, visual hierarchy, and design assets should reinforce your brand’s distinctiveness while making the experience easy to navigate.'],
       ['Do you effectively showcase the actual product experience?','Use clear product screenshots, short videos, and interactive tours to help buyers understand what your software looks like and how it works.'],
-      ['Does your site comply with modern WCAG accessibility standards?','Review color contrast, keyboard navigation, screen reader compatibility, alternative text, and focus indicators against WCAG 2.2 Level AA guidelines. <a href="https://wcag.com/" target="_blank" rel="noopener">Begin your accessibility audit here ↗<span class="sr-only"> (opens in a new tab)</span></a>.'],
+      ['Does your site comply with modern WCAG accessibility standards?','Review color contrast, keyboard navigation, screen reader compatibility, alternative text, and focus indicators against WCAG 2.2 Level AA guidelines.',['Begin your accessibility audit here','https://wcag.com/']],
       ['Does your site follow design best practices (heuristics)?','Clear visual hierarchy, predictable navigation, adequate whitespace, and helpful error messages should make your website intuitive to use.']]],
     ['Web architecture, MarTech, and technical readiness',[
       ['Have you planned for SEO during a website redesign to protect rankings?','Audit existing URLs, preserve high-performing content, map redirects, and monitor search performance to avoid losing valuable organic visibility.'],
       ['Can your marketing team autonomously manage and scale the CMS?','Your CMS should let marketers publish and update pages independently while maintaining design consistency and supporting future growth.'],
       ['Is your site responsive on mobile, tablet, and desktop?','Navigation, forms, content, and layouts should remain accessible and easy to use across screen sizes without awkward scrolling or layout shifts.'],
       ['Does your website integrate well with your CRM and MarTech stack?','Forms, CRM records, marketing automation, and tracking tools should work together to support lead routing, follow-up, and accurate pipeline reporting.'],
-      ['Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages. <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Check page speed here ↗<span class="sr-only"> (opens in a new tab)</span></a>.'],
+      ['Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages.',['Check page speed here','https://pagespeed.web.dev/']],
       ['Is your site optimized for search indexability and AI discoverability?','Review crawlability, canonical tags, sitemaps, structured data, and content clarity to help search engines access and understand your website.']]]
   ];
-  var RATINGS=[['yes','Yes','g'],['partial','Partial','y'],['no','No','r'],['unsure','Unsure','u']];
-  var KEY='tiller-audit-checklist-v2', saved={};
+  var ANSWERS=[['yes','Yes'],['partial','Partial'],['no','No'],['unsure','Unsure']];
+  var LABEL={yes:'Yes',partial:'Partial',no:'No',unsure:'Unsure'};
+  var DOT={yes:[43,182,115],partial:[255,161,0],no:[244,61,0]};
+  var KEY='tiller-audit-checklist-v3', saved={};
   try{saved=JSON.parse(localStorage.getItem(KEY));}catch(e){}
   if(!saved||typeof saved!=='object')saved={};
   function store(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
+  /* Build the table */
   var html='', n=0;
   SECTIONS.forEach(function(s){
-    html+='<tbody><tr class="sec-row"><th colspan="3" scope="rowgroup"><h2>'+s[0]+'</h2></th></tr>';
+    html+='<tbody><tr class="sec"><th colspan="3" scope="rowgroup"><h2>'+esc(s[0])+'</h2></th></tr>';
     s[1].forEach(function(q){
       n++;
-      html+='<tr class="row"><th scope="row"><p class="q" id="q'+n+'">'+n+'. '+q[0]+'</p><p class="d">'+q[1]+'</p></th>'
-        +'<td><fieldset aria-labelledby="q'+n+'"><div class="rate">'
-        +RATINGS.map(function(r){var id='q'+n+'-'+r[0];return '<input type="radio" name="q'+n+'" id="'+id+'" value="'+r[0]+'"'+(saved['q'+n]===r[0]?' checked':'')+'><label class="'+r[2]+'" for="'+id+'">'+r[1]+'</label>';}).join('')
-        +'</div></fieldset></td>'
-        +'<td><span class="nl" id="nl'+n+'">Notes</span><textarea name="n'+n+'" aria-labelledby="nl'+n+' q'+n+'"></textarea></td></tr>';
+      var link=q[2]?' <a href="'+q[2][1]+'" target="_blank" rel="noopener">'+esc(q[2][0])+' ↗<span class="sr-only"> (opens in a new tab)</span></a>.':'';
+      var v=saved['q'+n]||'';
+      if(!(v in LABEL))v='';
+      html+='<tr class="row"><th scope="row"><p class="q" id="q'+n+'">'+n+'. '+esc(q[0])+'</p><p class="d">'+esc(q[1])+link+'</p></th>'
+        +'<td><label class="fl" id="al'+n+'" for="a'+n+'">Assessment</label><select id="a'+n+'" name="q'+n+'" data-v="'+v+'" aria-labelledby="al'+n+' q'+n+'">'
+        +'<option value="">Select</option>'
+        +ANSWERS.map(function(a){return '<option value="'+a[0]+'"'+(v===a[0]?' selected':'')+'>'+a[1]+'</option>';}).join('')
+        +'</select></td>'
+        +'<td><label class="fl" id="nl'+n+'" for="n'+n+'">Notes</label><textarea id="n'+n+'" name="n'+n+'" aria-labelledby="nl'+n+' q'+n+'"></textarea></td></tr>';
     });
     html+='</tbody>';
   });
-  var table=document.getElementById('checklist');
+  var table=document.querySelector('table');
   table.insertAdjacentHTML('beforeend',html);
   table.querySelectorAll('textarea').forEach(function(t){t.value=saved[t.name]||'';});
-  table.addEventListener('input',function(e){var t=e.target;if(!t.name)return;saved[t.name]=t.value;store();});
+  function onEdit(e){
+    var t=e.target; if(!t.name)return;
+    if(t.tagName==='SELECT')t.setAttribute('data-v',t.value);
+    saved[t.name]=t.value; store();
+  }
+  table.addEventListener('input',onEdit);
+  table.addEventListener('change',onEdit);
+
+  /* Answers in order */
+  function rows(){
+    var out=[], k=0;
+    SECTIONS.forEach(function(s){
+      out.push({section:s[0]});
+      s[1].forEach(function(q){k++;var a=saved['q'+k];out.push({n:k,q:q[0],d:q[1],a:(a in LABEL)?a:'',notes:(saved['n'+k]||'').trim()});});
+    });
+    return out;
+  }
+  function stamp(){return new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});}
+  function save(blob,name){
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
+    document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1000);
+  }
+  var loaded={};
+  function load(src){
+    if(!loaded[src])loaded[src]=new Promise(function(res,rej){var s=document.createElement('script');s.src=src;s.onload=res;s.onerror=function(){delete loaded[src];rej(new Error('load'));};document.head.appendChild(s);});
+    return loaded[src];
+  }
+  function logoPng(){
+    return new Promise(function(res){
+      var img=new Image();
+      img.onload=function(){var c=document.createElement('canvas');c.width=352;c.height=112;c.getContext('2d').drawImage(img,0,0,352,112);try{res(c.toDataURL('image/png'));}catch(e){res(null);}};
+      img.onerror=function(){res(null);};
+      img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(LOGO);
+    });
+  }
+
+  function pdf(){
+    return load('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
+      .then(function(){return load('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js');})
+      .then(logoPng)
+      .then(function(logo){
+        var doc=new window.jspdf.jsPDF({orientation:'landscape',unit:'pt',format:'letter'});
+        var W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight(), M=40, y=M;
+        if(logo){doc.addImage(logo,'PNG',M,y,66,21);y+=48;}
+        doc.setFont('helvetica','bold');doc.setFontSize(20);doc.text(TITLE,M,y);
+        doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(102);doc.text('Completed '+stamp(),M,y+18);doc.setTextColor(0);
+        var FS=9, LH=FS*1.15, colQ=(W-2*M)*0.48, colA=96;
+        var body=[], meta=[];
+        rows().forEach(function(r){
+          if(r.section){body.push([{content:r.section,colSpan:3,styles:{fontStyle:'bold',fontSize:11,fillColor:[243,243,243]}}]);meta.push(null);return;}
+          body.push([r.n+'. '+r.q, r.a?LABEL[r.a]:'', r.notes]);meta.push(r);
+        });
+        doc.autoTable({
+          startY:y+34, margin:{left:M,right:M,bottom:48},
+          head:[['Question','Assessment','Assessment notes']], body:body, theme:'grid',
+          styles:{font:'helvetica',fontSize:FS,cellPadding:6,lineColor:[204,204,204],lineWidth:.5,textColor:0,valign:'top',overflow:'linebreak'},
+          headStyles:{fillColor:[0,0,0],textColor:255,fontStyle:'bold'},
+          columnStyles:{0:{cellWidth:colQ},1:{cellWidth:colA,cellPadding:{top:6,right:6,bottom:6,left:20}}},
+          didParseCell:function(h){
+            if(h.section!=='body'||h.column.index!==0)return;
+            var r=meta[h.row.index]; if(!r)return;
+            doc.setFontSize(FS);
+            doc.setFont('helvetica','bold');var t=doc.splitTextToSize(r.n+'. '+r.q,colQ-12);
+            doc.setFont('helvetica','normal');var d=doc.splitTextToSize(r.d,colQ-12);
+            h.cell.text=t.concat(d); h.cell.styles.textColor=[255,255,255];
+            h.cell.tl=t; h.cell.dl=d;
+          },
+          didDrawCell:function(h){
+            if(h.section!=='body')return;
+            var r=meta[h.row.index]; if(!r)return;
+            if(h.column.index===0&&h.cell.tl){
+              var x=h.cell.x+6, yy=h.cell.y+6+FS*.85;
+              doc.setFontSize(FS);doc.setFont('helvetica','bold');doc.setTextColor(0);
+              h.cell.tl.forEach(function(l){doc.text(l,x,yy);yy+=LH;});
+              doc.setFont('helvetica','normal');doc.setTextColor(102);
+              h.cell.dl.forEach(function(l){doc.text(l,x,yy);yy+=LH;});
+              doc.setTextColor(0);
+            }
+            if(h.column.index===1&&r.a){
+              var cx=h.cell.x+11, cy=h.cell.y+6+FS*.45;
+              if(DOT[r.a]){doc.setFillColor(DOT[r.a][0],DOT[r.a][1],DOT[r.a][2]);doc.circle(cx,cy,3.5,'F');}
+              else{doc.setDrawColor(102);doc.setLineWidth(1);doc.circle(cx,cy,3,'S');}
+            }
+          }
+        });
+        var end=doc.lastAutoTable.finalY+32;
+        if(end>H-80){doc.addPage();end=M+10;}
+        doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(0);doc.text(CTA_TEXT,M,end);
+        doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(0,111,246);
+        doc.textWithLink('Book a call: tillerdigital.com/lets-talk',M,end+18,{url:CTA_URL});doc.setTextColor(0);
+        var pages=doc.getNumberOfPages();
+        for(var i=1;i<=pages;i++){doc.setPage(i);doc.setFontSize(8);doc.setTextColor(102);doc.text('tillerdigital.com',M,H-24);doc.text(i+' / '+pages,W-M,H-24,{align:'right'});}
+        save(doc.output('blob'),'tiller-website-audit-checklist.pdf');
+      });
+  }
+
+  function xlsx(){
+    return load('https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js').then(function(){
+      var wb=new window.ExcelJS.Workbook(); wb.creator='Tiller Digital';
+      var ws=wb.addWorksheet('Website Audit Checklist',{views:[{state:'frozen',ySplit:3}],pageSetup:{orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:0}});
+      ws.columns=[{width:72},{width:16},{width:56}];
+      ws.mergeCells('A1:C1'); ws.getCell('A1').value=TITLE; ws.getCell('A1').font={bold:true,size:18}; ws.getRow(1).height=28;
+      ws.mergeCells('A2:C2'); ws.getCell('A2').value='Completed '+stamp(); ws.getCell('A2').font={color:{argb:'FF666666'}};
+      var head=ws.addRow(['Questions','Assessment','Assessment notes']);
+      head.eachCell(function(c){c.font={bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF000000'}};c.alignment={vertical:'middle'};});
+      head.height=22;
+      var first=null,last=null;
+      rows().forEach(function(r){
+        if(r.section){var s=ws.addRow([r.section]);ws.mergeCells('A'+s.number+':C'+s.number);s.getCell(1).font={bold:true,size:13};s.getCell(1).fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFF3F3F3'}};s.height=24;return;}
+        var row=ws.addRow([{richText:[{text:r.n+'. '+r.q+'\n',font:{bold:true}},{text:r.d,font:{color:{argb:'FF666666'}}}]},r.a?LABEL[r.a]:'',r.notes]);
+        row.alignment={vertical:'top',wrapText:true};
+        row.getCell(2).dataValidation={type:'list',allowBlank:true,formulae:['"Yes,Partial,No,Unsure"']};
+        row.height=15*(Math.ceil(r.q.length/70)+Math.ceil(r.d.length/80))+8;
+        if(first===null)first=row.number; last=row.number;
+      });
+      function fill(argb){return {fill:{type:'pattern',pattern:'solid',bgColor:{argb:argb}}};}
+      ws.addConditionalFormatting({ref:'B'+first+':B'+last,rules:[
+        {type:'cellIs',operator:'equal',formulae:['"Yes"'],style:fill('FFD5F0E3'),priority:1},
+        {type:'cellIs',operator:'equal',formulae:['"Partial"'],style:fill('FFFFECCC'),priority:2},
+        {type:'cellIs',operator:'equal',formulae:['"No"'],style:fill('FFFDD8CC'),priority:3}
+      ]});
+      ws.addRow([]);
+      var c=ws.addRow([{text:CTA_TEXT,hyperlink:CTA_URL}]);
+      ws.mergeCells('A'+c.number+':C'+c.number);
+      c.getCell(1).font={bold:true,color:{argb:'FF006FF6'},underline:true};
+      return wb.xlsx.writeBuffer().then(function(buf){
+        save(new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),'tiller-website-audit-checklist.xlsx');
+      });
+    });
+  }
+
+  var status=document.getElementById('dl-status');
+  document.querySelectorAll('[data-dl]').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(b.getAttribute('aria-busy')==='true')return;
+      var kind=b.getAttribute('data-dl'), K=kind.toUpperCase();
+      b.setAttribute('aria-busy','true');status.textContent='Preparing your '+K+'…';
+      (kind==='pdf'?pdf():xlsx()).then(function(){status.textContent='Your '+K+' is downloading.';})
+        .catch(function(){status.textContent='Sorry, the download didn’t work. Please try again.';})
+        .then(function(){b.removeAttribute('aria-busy');});
+    });
+  });
+
+  /* Tell the parent page how tall the form is, so the iframe never needs its own scrollbar */
+  var last=0;
+  function post(){
+    var h=Math.ceil(document.documentElement.scrollHeight);
+    if(h===last)return; last=h;
+    try{parent.postMessage({type:'tiller-audit-height',height:h},'*');}catch(e){}
+  }
+  if(window.ResizeObserver)new ResizeObserver(post).observe(document.body);
+  window.addEventListener('load',post); post();
 })();
 </script>
 </body>
