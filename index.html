@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Website Redesign Audit Checklist | Tiller Digital</title>
+<meta name="description" content="Answer 20 questions to score your current website and see whether it needs a full redesign, a partial refresh, or CRO optimization.">
+<link rel="icon" href="tiller.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<style>
+/* Tokens taken from tillerdigital.com (wp-tiller-2025 theme) */
+:root{
+  --black:#000; --white:#fff; --orange:#FFA100; --blue:#006FF6; --red:#F43D00;
+  --green:#2BB673; --dark-grey:#666; --light-grey:#ccc; --tint:#f4f4f4;
+  --s1:8px; --s2:12px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  /* Bassen and Tiempos are the site's licensed fonts; the live build uses them. */
+  --sans:'bassen','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'tiempos','Source Serif 4',Georgia,'Times New Roman',serif;
+  --frame:1328px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.75;color:var(--white);background:var(--black);word-wrap:break-word}
+@media (min-width:900px){body{font-size:18px}}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.25;letter-spacing:.03em;text-wrap:balance;margin:1.25em 0 .5em}
+a{color:inherit;font-weight:600;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:2px}
+a:hover{text-decoration-color:var(--orange)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.inverted :focus-visible{outline-color:var(--blue)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--s3);top:-100px;z-index:100;background:var(--orange);color:var(--black);padding:var(--s2) var(--s3)}
+.skip:focus{top:var(--s3)}
+.frame{max-width:var(--frame);margin:0 auto;padding:0 var(--s3)}
+@media (min-width:900px){.frame{padding:0 var(--s5)}}
+
+/* Buttons: same build as the site's .b-button.alt-icon */
+.btn{cursor:pointer;display:inline-flex;align-items:stretch;padding:0;border:0;border-radius:0;font:600 16px/1.25 var(--sans);color:var(--black);background:var(--orange);text-decoration:none;transition:color .25s,background .25s,box-shadow .25s}
+.btn .text{padding:14px 20px;display:flex;align-items:center}
+.btn .icon{position:relative;flex:0 0 auto;width:44px;min-height:44px;margin:2px 2px 2px 0;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center}
+.btn .icon svg{width:17px;height:16px;fill:currentColor;transition:transform .25s}
+.btn:hover{color:var(--white);background:var(--blue)}
+.btn:hover .icon svg{transform:translateX(3px)}
+.btn.secondary{color:var(--white);background:transparent;box-shadow:inset 0 0 0 2px var(--white)}
+.btn.secondary .text{border-right:2px solid currentColor}
+.btn.secondary .icon{background:transparent;margin:0}
+.btn.secondary:hover{color:var(--black);background:var(--white)}
+.inverted .btn{color:var(--white);background:var(--blue)}
+.inverted .btn:hover{background:var(--black)}
+.inverted .btn.secondary{color:var(--black);background:transparent;box-shadow:inset 0 0 0 2px var(--black)}
+.inverted .btn.secondary .icon{color:var(--black)}
+.inverted .btn.secondary:hover{color:var(--white);background:var(--black)}
+.inverted .btn.secondary:hover .icon{color:var(--white)}
+.linkbtn{background:none;border:0;padding:0;font:600 16px/1.5 var(--sans);color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:2px}
+.linkbtn:hover{text-decoration-color:var(--orange)}
+
+/* Header */
+.page-head{border-bottom:1px solid rgb(255 255 255 / .15)}
+.page-head .frame{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:64px}
+@media (min-width:900px){.page-head .frame{min-height:96px}}
+.logo{display:block;width:88px;height:28px;flex:0 0 auto}
+.logo img{display:block;width:100%;height:100%}
+.page-head .btn .text{padding:10px 16px}
+.page-head .btn .icon{width:36px;min-height:36px}
+
+/* Hero */
+.hero{padding:var(--s6) 0 var(--s6)}
+@media (min-width:900px){.hero{padding:var(--s8) 0 var(--s7)}}
+.eyebrow{font:600 14px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin:0 0 var(--s3)}
+.hero h1{margin:0 0 var(--s4);font-size:40px;max-width:16ch}
+@media (min-width:900px){.hero h1{font-size:72px}}
+.hero .lede{max-width:60ch;margin:0 0 var(--s5);color:rgb(255 255 255 / .85)}
+.legend-row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin:0 0 var(--s5);padding:0;list-style:none;font-size:15px}
+.legend-row li{display:flex;align-items:center;gap:var(--s1)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center}
+.hero-meta{font-size:14px;color:rgb(255 255 255 / .7);margin:var(--s3) 0 0}
+
+/* Status dots used in legend, options and summaries */
+.dot{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;flex:0 0 auto;font:700 12px/1 var(--sans);color:var(--black)}
+.dot.g{background:var(--green)} .dot.y{background:var(--orange)} .dot.r{background:var(--red)} .dot.n{background:var(--white);box-shadow:inset 0 0 0 2px var(--dark-grey)}
+
+/* Layout */
+.content-section{background:var(--black);padding-bottom:var(--s7)}
+.layout{display:grid;gap:var(--s5)}
+@media (min-width:1000px){.layout{grid-template-columns:320px minmax(0,1fr);gap:var(--s6);align-items:start}}
+
+/* Sidebar score card (mirrors the article's sidebar CTA box) */
+.sidebar{position:relative}
+@media (min-width:1000px){.sidebar{position:sticky;top:var(--s4)}}
+.scorecard{border:2px solid rgb(255 255 255 / .2);padding:var(--s4)}
+.scorecard h2{font-size:24px;margin:0 0 var(--s3)}
+.progress{height:8px;background:rgb(255 255 255 / .15);margin:var(--s2) 0 var(--s1)}
+.progress span{display:block;height:100%;width:0;background:var(--orange);transition:width .3s}
+.progress-label{font-size:14px;color:rgb(255 255 255 / .8);margin:0}
+.sec-list{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;gap:var(--s3)}
+.sec-list a{display:block;text-decoration:none;font-weight:400}
+.sec-list a:hover .sec-name{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:.3em}
+.sec-name{display:block;font-size:15px;line-height:1.4}
+.sec-meta{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);font-size:13px;color:rgb(255 255 255 / .7);margin-top:4px}
+.mini{display:flex;gap:3px}
+.mini i{width:14px;height:6px;background:rgb(255 255 255 / .2)}
+.mini i.g{background:var(--green)} .mini i.y{background:var(--orange)} .mini i.r{background:var(--red)} .mini i.n{background:var(--white)}
+.side-actions{display:grid;gap:var(--s2);margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid rgb(255 255 255 / .2);font-size:15px}
+.side-actions .linkbtn,.side-actions a{font-size:15px;text-align:left;justify-self:start}
+.saved{font-size:13px;color:rgb(255 255 255 / .6);margin:0}
+
+/* Question area (white, like the article body) */
+.inverted{background:var(--white);color:var(--black)}
+.sheet{padding:var(--s4) var(--s3)}
+@media (min-width:700px){.sheet{padding:var(--s6)}}
+.section-block{scroll-margin-top:var(--s4)}
+.section-block+.section-block{margin-top:var(--s7)}
+.section-block>h2{font-size:30px;margin:0 0 var(--s2)}
+@media (min-width:900px){.section-block>h2{font-size:48px}}
+.section-intro{margin:0 0 var(--s4);color:#333;font-size:16px}
+.q{border-top:1px solid var(--light-grey);padding:var(--s4) 0}
+.q:last-child{border-bottom:1px solid var(--light-grey)}
+.q h3{font-size:22px;margin:0 0 var(--s1)}
+@media (min-width:900px){.q h3{font-size:26px}}
+.q .num{font-family:var(--sans);font-weight:600;font-size:.7em;color:var(--dark-grey);margin-right:.35em;letter-spacing:0}
+.q p.desc{margin:0 0 var(--s3);font-size:16px;color:#333;max-width:70ch}
+.q fieldset{border:0;margin:0;padding:0;min-width:0}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s1)}
+@media (min-width:700px){.opts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt label{display:flex;align-items:center;gap:var(--s1);min-height:48px;padding:10px 12px;border:2px solid var(--light-grey);font-size:15px;font-weight:600;line-height:1.25;cursor:pointer;transition:border-color .15s,background .15s}
+.opt input:hover+label{border-color:var(--black)}
+.opt input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
+.opt input:checked+label{border-color:var(--black);background:var(--black);color:var(--white)}
+.opt input:checked+label .dot.n{box-shadow:none}
+.notes{margin-top:var(--s2)}
+.notes summary{cursor:pointer;font-size:15px;font-weight:600;width:max-content;max-width:100%;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:2px;list-style:none}
+.notes summary::-webkit-details-marker{display:none}
+.notes summary::before{content:'+ '}
+.notes[open] summary::before{content:'– '}
+.notes summary:hover{text-decoration-color:var(--blue)}
+.notes textarea{display:block;width:100%;min-height:88px;margin-top:var(--s1);padding:var(--s2);font:16px/1.5 var(--sans);color:var(--black);border:2px solid var(--light-grey);border-radius:0;resize:vertical}
+.notes textarea:focus{border-color:var(--black);outline:none}
+.notes textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q .ext{font-weight:600}
+.print-only{display:none}
+
+/* Results (black band, like the site's global CTA) */
+.results{padding:var(--s7) 0;border-top:1px solid rgb(255 255 255 / .15);scroll-margin-top:var(--s4)}
+.results h2{font-size:36px;margin:0 0 var(--s3)}
+@media (min-width:900px){.results h2{font-size:62px}}
+.results-grid{display:grid;gap:var(--s5)}
+@media (min-width:1000px){.results-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7)}}
+.score-big{font-family:var(--serif);font-size:72px;line-height:1;letter-spacing:.03em;margin:0}
+@media (min-width:900px){.score-big{font-size:96px}}
+.score-sub{margin:var(--s1) 0 var(--s5);color:rgb(255 255 255 / .75);font-size:15px}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.bar-row{display:grid;gap:4px}
+.bar-top{display:flex;justify-content:space-between;gap:var(--s2);font-size:15px}
+.bar{height:10px;background:rgb(255 255 255 / .15)}
+.bar span{display:block;height:100%;width:0;background:var(--orange);transition:width .4s}
+.verdict{border:2px solid var(--orange);padding:var(--s4)}
+@media (min-width:700px){.verdict{padding:var(--s5)}}
+.verdict .eyebrow{margin-bottom:var(--s1)}
+.verdict h3{font-size:32px;margin:0 0 var(--s2)}
+@media (min-width:900px){.verdict h3{font-size:40px}}
+.verdict p{margin:0 0 var(--s3)}
+.paths{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;gap:var(--s1);font-size:15px}
+.paths li{display:flex;gap:var(--s2);align-items:baseline;color:rgb(255 255 255 / .6)}
+.paths li.on{color:var(--white);font-weight:600}
+.paths li::before{content:'';width:10px;height:10px;flex:0 0 auto;border:2px solid currentColor;transform:translateY(1px)}
+.paths li.on::before{background:var(--orange);border-color:var(--orange)}
+.gaps h3{font-size:24px;margin:var(--s5) 0 var(--s2)}
+.gaps ul{margin:0;padding:0;list-style:none;display:grid;gap:var(--s2)}
+.gaps li{display:flex;gap:var(--s2);align-items:flex-start;font-size:16px;line-height:1.5}
+.gaps li .dot{margin-top:2px}
+.cta-row{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.empty-note{color:rgb(255 255 255 / .75)}
+
+/* Email + download band */
+.after{padding:0 0 var(--s7)}
+.after-grid{display:grid;gap:var(--s4)}
+@media (min-width:1000px){.after-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.panel{padding:var(--s4)}
+@media (min-width:700px){.panel{padding:var(--s5)}}
+.panel h2{font-size:28px;margin:0 0 var(--s2)}
+.panel p{margin:0 0 var(--s3);font-size:16px}
+.field{display:grid;gap:4px;margin-bottom:var(--s3)}
+.field label{font-weight:600;font-size:15px}
+.field input{font:16px/1.5 var(--sans);padding:12px;border:2px solid var(--light-grey);border-radius:0;color:var(--black);background:var(--white);width:100%}
+.field input:focus{border-color:var(--black);outline:none}
+.field input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.check{display:flex;gap:var(--s2);align-items:flex-start;font-size:15px;line-height:1.5;margin-bottom:var(--s3)}
+.check input{width:20px;height:20px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--blue)}
+.fine{font-size:13px;color:#555;line-height:1.5}
+.form-msg{font-weight:600;margin:var(--s3) 0 0}
+.form-msg[hidden]{display:none}
+.dl-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.dl-list li{display:flex;flex-direction:column;gap:2px}
+.dl-list .hint{font-size:14px;color:rgb(255 255 255 / .7)}
+.outlined{border:2px solid rgb(255 255 255 / .2)}
+
+footer{border-top:1px solid rgb(255 255 255 / .15);padding:var(--s5) 0;font-size:14px;color:rgb(255 255 255 / .7)}
+footer .frame{display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:space-between}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+
+/* Print / Save as PDF */
+@media print{
+  @page{margin:16mm}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45}
+  .page-head .btn,.hero-actions,.hero-meta,.sidebar,.after,footer,.skip,.cta-row,.notes summary,.notes textarea,.legend-row{display:none!important}
+  .hero{padding:0 0 12pt}
+  .hero h1{font-size:24pt;color:#000}
+  .hero .lede,.eyebrow{color:#000}
+  .layout{display:block}
+  .sheet{padding:0}
+  .section-block+.section-block{margin-top:18pt}
+  .section-block>h2{font-size:16pt;break-after:avoid}
+  .q{padding:8pt 0;break-inside:avoid}
+  .q h3{font-size:12pt}
+  .q p.desc{font-size:10pt;margin-bottom:4pt}
+  .opts{display:none}
+  .print-only{display:block;font-size:10pt}
+  .print-only[hidden]{display:none}
+  .results{border:0;padding:12pt 0;break-before:page;color:#000;background:#fff}
+  .results *{color:#000!important}
+  .results h2{font-size:20pt}
+  .score-big{font-size:36pt}
+  .bar,.progress{border:1px solid #000;background:#fff}
+  .bar span{background:#000!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .verdict{border-color:#000}
+  .dot{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#questions">Skip to the checklist</a>
+
+<header class="page-head">
+  <div class="frame">
+    <a class="logo" href="https://tillerdigital.com/" aria-label="Tiller Digital home"><img src="tiller.svg" alt="" width="88" height="28"></a>
+    <a class="btn" href="https://tillerdigital.com/lets-talk/" data-track="cta_book_call" data-track-location="header"><span class="text">Book a Call</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="page-title">
+    <div class="frame">
+      <p class="eyebrow">Free self-assessment</p>
+      <h1 id="page-title">Website redesign audit checklist</h1>
+      <p class="lede">Rate your current site on the 20 questions from our guide, <a href="https://tillerdigital.com/guides/website-audit-checklist-20-questions-to-ask-before-a-website-redesign/" data-track="guide_click">20 questions to ask before a website redesign</a>. You’ll get a score for each area and a starting recommendation: a full redesign, a partial refresh, or CRO optimization.</p>
+      <ul class="legend-row" aria-label="Rating scale">
+        <li><span class="dot g" aria-hidden="true">✓</span> Strong</li>
+        <li><span class="dot y" aria-hidden="true">!</span> Needs work</li>
+        <li><span class="dot r" aria-hidden="true">✕</span> Major gap</li>
+        <li><span class="dot n" aria-hidden="true">?</span> Not sure</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn" href="#questions" id="start-btn"><span class="text">Start the checklist</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+        <a class="linkbtn" href="#downloads" data-track="jump_downloads">Prefer a spreadsheet or printout?</a>
+      </div>
+      <p class="hero-meta">About 10 minutes. Your answers stay in this browser; nothing is sent unless you ask us to email your results.</p>
+    </div>
+  </section>
+
+  <section class="content-section" aria-label="Checklist">
+    <div class="frame layout">
+      <aside class="sidebar" aria-labelledby="progress-title">
+        <div class="scorecard">
+          <h2 id="progress-title">Your progress</h2>
+          <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p class="progress-label" id="progress-label" aria-live="polite">0 of 20 answered</p>
+          <ul class="sec-list" id="sec-list"></ul>
+          <div class="side-actions">
+            <a href="#results" data-track="jump_results">See your results</a>
+            <button type="button" class="linkbtn" id="print-btn">Print or save as PDF</button>
+            <button type="button" class="linkbtn" id="csv-btn">Download as CSV</button>
+            <button type="button" class="linkbtn" id="reset-btn">Clear my answers</button>
+            <p class="saved" id="saved-note">Answers save in this browser as you go.</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="sheet inverted" id="questions" tabindex="-1">
+        <form id="checklist" novalidate></form>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results" aria-labelledby="results-title" tabindex="-1">
+    <div class="frame">
+      <p class="eyebrow">Your results</p>
+      <h2 id="results-title">How your website scores</h2>
+      <div class="results-grid">
+        <div>
+          <p class="score-big"><span id="score-pct">–</span></p>
+          <p class="score-sub" id="score-sub">Answer a few questions to see your score.</p>
+          <ul class="bars" id="bars"></ul>
+        </div>
+        <div>
+          <div class="verdict" id="verdict" aria-live="polite">
+            <p class="eyebrow">Where to start</p>
+            <h3 id="verdict-title">Keep going</h3>
+            <p id="verdict-body" class="empty-note">Rate at least 10 questions and we’ll suggest whether your site needs a full redesign, a partial refresh, or CRO optimization.</p>
+            <ul class="paths" id="paths" aria-label="Decision framework">
+              <li data-path="cro">CRO optimization</li>
+              <li data-path="refresh">Partial refresh</li>
+              <li data-path="redesign">Full redesign</li>
+            </ul>
+          </div>
+          <div class="gaps" id="gaps" hidden>
+            <h3>Your biggest gaps</h3>
+            <ul id="gap-list"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://tillerdigital.com/lets-talk/" data-track="cta_book_call" data-track-location="results"><span class="text">Book a Call</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+        <a class="btn secondary" href="https://tillerdigital.com/guides/website-audit-checklist-20-questions-to-ask-before-a-website-redesign/" data-track="guide_click" data-track-location="results"><span class="text">Read the full guide</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></a>
+      </div>
+      <p class="print-only">Seeing a lot of red and yellow? Let’s talk about options for getting you to green: tillerdigital.com/lets-talk</p>
+    </div>
+  </section>
+
+  <section class="after" aria-label="Save or share your results">
+    <div class="frame after-grid">
+      <div class="panel inverted">
+        <h2 id="email-title">Email me my results</h2>
+        <p>Get a copy of your scores, your notes and the recommendation in your inbox. Optional: the checklist works without it.</p>
+        <form id="email-form" aria-labelledby="email-title" novalidate>
+          <div class="field">
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err">
+            <span id="email-err" class="fine" role="alert"></span>
+          </div>
+          <label class="check"><input type="checkbox" name="followup"> <span>I’d like someone from Tiller to follow up about my results.</span></label>
+          <label class="check"><input type="checkbox" name="newsletter"> <span>Send me Tiller’s newsletter.</span></label>
+          <button class="btn" type="submit"><span class="text">Email my results</span><span class="icon" aria-hidden="true"><svg viewBox="0 0 17 16"><path d="M13.0114 7.00006L7.78636 1.77502L9.20058 0.360809L16.8398 8L9.20058 15.6392L7.78636 14.225L13.0113 9.00006H0.160217V7.00006H13.0114Z"/></svg></span></button>
+          <p class="fine">We use your email to send your results and, only if you ticked a box above, to follow up. See our <a href="https://tillerdigital.com/privacy-policy/">privacy policy</a>.</p>
+          <p class="form-msg" id="form-msg" role="status" hidden></p>
+        </form>
+      </div>
+      <div class="panel outlined" id="downloads" tabindex="-1">
+        <h2>Print, download or copy</h2>
+        <p>Prefer working offline or sharing with your team?</p>
+        <ul class="dl-list">
+          <li><button type="button" class="linkbtn" id="print-btn-2">Print or save as PDF</button><span class="hint">Includes your ratings, notes and results.</span></li>
+          <li><button type="button" class="linkbtn" id="csv-btn-2">Download your answers (CSV)</button><span class="hint">Opens in Excel, Numbers or Google Sheets.</span></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/copy" target="_blank" rel="noopener" data-track="sheet_copy">Make a copy of the blank Google Sheet<span class="sr-only"> (opens in a new tab)</span></a><span class="hint">Needs a Google account.</span></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/export?format=xlsx" data-track="sheet_xlsx">Download the blank checklist (Excel)</a><span class="hint">No account needed.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="frame">
+    <span>© Tiller Digital</span>
+    <a href="https://tillerdigital.com/">tillerdigital.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var GUIDE='https://tillerdigital.com/guides/website-audit-checklist-20-questions-to-ask-before-a-website-redesign/';
+  var SECTIONS=[
+    {id:'strategy',title:'Website strategy and pipeline performance',short:'Strategy & pipeline',qs:[
+      [1,'Have you established your performance baselines and revenue metrics?','Benchmark traffic, conversion rates, pipeline contribution, and revenue attribution to understand what’s working and where your website is falling short.'],
+      [2,'Does your user journey guide B2B SaaS buying committees?','Your navigation, page structure, and content should help different stakeholders find the information they need to evaluate your solution.'],
+      [3,'Are your ideal client profiles and buyer friction points up to date?','Your website messaging should reflect your current ICP, address relevant buying triggers, and anticipate the concerns that could slow down a purchase.'],
+      [4,'Is your core market positioning and product differentiation crystal clear?','Visitors should quickly understand what you offer, who it’s for, and why they should choose your solution over the alternatives.'],
+      [5,'Are your conversion paths optimized to turn website traffic into pipeline?','CTAs, forms, scheduling, and lead routing should make it easy for qualified buyers to take the next step and connect with sales.']]},
+    {id:'messaging',title:'Copywriting, messaging, and customer proof',short:'Copy & messaging',qs:[
+      [6,'Does your website back up key messaging with proof points or strong reasons to believe?','Support your claims with measurable customer results, relevant case studies, testimonials, and third-party validation that build buyer confidence.'],
+      [7,'Are your headlines and subheads value-driven?','Headlines should communicate meaningful benefits, highlight customer outcomes, and tell a clear story even when visitors only scan the page.'],
+      [8,'Are your CTA buttons driving qualified conversions?','CTAs should be clear, relevant, and strategically placed, with conversion rates and lead quality used to measure their effectiveness.'],
+      [9,'Does your messaging proactively address key buyer objections?','Your content should answer common questions about implementation, security, integrations, and product fit before those concerns stall a deal.'],
+      [10,'Does your website copy consistently communicate in a specific tone of voice?','Maintain a recognizable brand personality, consistent terminology, and clear writing standards across every page and content type.']]},
+    {id:'ux',title:'User experience and visual UI design',short:'UX & visual design',qs:[
+      [11,'Does your visual identity set you apart in a sea of software sameness?','Typography, color, visual hierarchy, and design assets should reinforce your brand’s distinctiveness while making the experience easy to navigate.'],
+      [12,'Do you effectively showcase the actual product experience?','Use clear product screenshots, short videos, and interactive tours to help buyers understand what your software looks like and how it works.'],
+      [13,'Does your site comply with modern WCAG accessibility standards?','Review color contrast, keyboard navigation, screen reader compatibility, alternative text, and focus indicators against WCAG 2.2 Level AA guidelines.',{href:'https://www.w3.org/WAI/standards-guidelines/wcag/',text:'Begin your accessibility audit'}],
+      [14,'Does your site follow design best practices (heuristics)?','Clear visual hierarchy, predictable navigation, adequate whitespace, and helpful error messages should make your website intuitive to use.']]},
+    {id:'tech',title:'Web architecture, MarTech, and technical readiness',short:'Architecture & MarTech',qs:[
+      [15,'Have you planned for SEO during a website redesign to protect rankings?','Audit existing URLs, preserve high-performing content, map redirects, and monitor search performance to avoid losing valuable organic visibility.'],
+      [16,'Can your marketing team autonomously manage and scale the CMS?','Your CMS should let marketers publish and update pages independently while maintaining design consistency and supporting future growth.'],
+      [17,'Is your site responsive on mobile, tablet, and desktop?','Navigation, forms, content, and layouts should remain accessible and easy to use across screen sizes without awkward scrolling or layout shifts.'],
+      [18,'Does your website integrate well with your CRM and MarTech stack?','Forms, CRM records, marketing automation, and tracking tools should work together to support lead routing, follow-up, and accurate pipeline reporting.'],
+      [19,'Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages.',{href:'https://pagespeed.web.dev/',text:'Check your page speed'}],
+      [20,'Is your site optimized for search indexability and AI discoverability?','Review crawlability, canonical tags, sitemaps, structured data, and content clarity to help search engines access and understand your website.']]}
+  ];
+  var OPTS=[['g','Strong','✓'],['y','Needs work','!'],['r','Major gap','✕'],['n','Not sure','?']];
+  var LABEL={g:'Strong',y:'Needs work',r:'Major gap',n:'Not sure'};
+  var POINTS={g:2,y:1,r:0};
+  var KEY='tiller-audit-checklist-v1';
+  var state={a:{},notes:{}};
+  var started=false, completedFired=false;
+
+  // Analytics: pushes to the GTM dataLayer the live site already loads.
+  window.dataLayer=window.dataLayer||[];
+  function track(event,params){var o={event:'audit_'+event};for(var k in params||{})o[k]=params[k];window.dataLayer.push(o);}
+
+  function load(){try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.a)state=s;}catch(e){}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('saved-note').textContent='Saved in this browser.';}catch(e){}}
+
+  function el(tag,attrs,html){var e=document.createElement(tag);for(var k in attrs||{})e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e;}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  var form=document.getElementById('checklist');
+  SECTIONS.forEach(function(sec){
+    var block=el('section',{'class':'section-block',id:'sec-'+sec.id,'aria-labelledby':'h-'+sec.id});
+    block.appendChild(el('h2',{id:'h-'+sec.id},esc(sec.title)));
+    sec.qs.forEach(function(q){
+      var n=q[0], wrap=el('div',{'class':'q',id:'q'+n});
+      wrap.appendChild(el('h3',{id:'qt'+n},'<span class="num">'+n+'.</span>'+esc(q[1])));
+      var desc=esc(q[2]);
+      if(q[3])desc+=' <a class="ext" href="'+q[3].href+'" target="_blank" rel="noopener">'+esc(q[3].text)+'<span class="sr-only"> (opens in a new tab)</span></a>.';
+      wrap.appendChild(el('p',{'class':'desc',id:'qd'+n},desc));
+      var fs=el('fieldset',{'aria-labelledby':'qt'+n,'aria-describedby':'qd'+n});
+      var opts=el('div',{'class':'opts'});
+      OPTS.forEach(function(o){
+        var id='q'+n+'-'+o[0], box=el('div',{'class':'opt'});
+        var inp=el('input',{type:'radio',name:'q'+n,id:id,value:o[0]});
+        if(state.a[n]===o[0])inp.checked=true;
+        box.appendChild(inp);
+        box.appendChild(el('label',{'for':id},'<span class="dot '+o[0]+'" aria-hidden="true">'+o[2]+'</span>'+o[1]));
+        opts.appendChild(box);
+      });
+      fs.appendChild(opts);
+      wrap.appendChild(fs);
+      var det=el('details',{'class':'notes'});
+      if(state.notes[n])det.open=true;
+      det.appendChild(el('summary',null,'Add notes'));
+      var ta=el('textarea',{name:'note'+n,'aria-label':'Notes for question '+n,rows:'3'});
+      ta.value=state.notes[n]||'';
+      det.appendChild(ta);
+      wrap.appendChild(det);
+      wrap.appendChild(el('p',{'class':'print-only',id:'pr'+n}));
+      block.appendChild(wrap);
+    });
+    form.appendChild(block);
+  });
+
+  var list=document.getElementById('sec-list'), bars=document.getElementById('bars');
+  SECTIONS.forEach(function(sec){
+    var li=el('li');
+    li.innerHTML='<a href="#sec-'+sec.id+'"><span class="sec-name">'+esc(sec.title)+'</span><span class="sec-meta"><span class="mini" aria-hidden="true">'+sec.qs.map(function(q){return '<i data-q="'+q[0]+'"></i>';}).join('')+'</span><span id="sm-'+sec.id+'">0 of '+sec.qs.length+'</span></span></a>';
+    list.appendChild(li);
+    var b=el('li',{'class':'bar-row'});
+    b.innerHTML='<div class="bar-top"><span>'+esc(sec.title)+'</span><strong id="bp-'+sec.id+'">–</strong></div><div class="bar" aria-hidden="true"><span id="bb-'+sec.id+'"></span></div>';
+    bars.appendChild(b);
+  });
+
+  form.addEventListener('change',function(e){
+    var t=e.target; if(t.type!=='radio')return;
+    var n=+t.name.slice(1);
+    if(!started){started=true;track('start',{question:n});}
+    state.a[n]=t.value; save(); render();
+    track('answer',{question:n,rating:LABEL[t.value]});
+  });
+  form.addEventListener('input',function(e){
+    var t=e.target; if(t.tagName!=='TEXTAREA')return;
+    state.notes[+t.name.slice(4)]=t.value; save(); renderPrint();
+  });
+
+  function stats(qs){
+    var pts=0,max=0,c={g:0,y:0,r:0,n:0},answered=0;
+    qs.forEach(function(n){var v=state.a[n];if(!v)return;answered++;c[v]++;if(v in POINTS){pts+=POINTS[v];max+=2;}});
+    return {pct:max?Math.round(pts/max*100):null,c:c,answered:answered,rated:max/2};
+  }
+  function all(){var r=[];SECTIONS.forEach(function(s){s.qs.forEach(function(q){r.push(q[0]);});});return r;}
+  function title(n){for(var i=0;i<SECTIONS.length;i++)for(var j=0;j<SECTIONS[i].qs.length;j++)if(SECTIONS[i].qs[j][0]===n)return SECTIONS[i].qs[j][1];}
+  function is(n,v){return state.a[n]===v;}
+
+  /* Decision rules, following the guide's framework:
+     - Full redesign: core positioning, CMS infrastructure, visual identity, mobile responsiveness
+       and technical UX are limiting growth.
+     - Partial refresh: CMS and positioning are strong, but the visual UI looks dated, key pages
+       need restructuring, or messaging needs updating for a revised ICP.
+     - CRO optimization: the foundations are solid; specific conversion paths, forms or pages underperform. */
+  var FOUNDATIONS=[[4,'Positioning'],[16,'CMS'],[11,'Visual identity'],[17,'Mobile responsiveness']];
+  var TECH_UX=[13,14,19];
+  var REFRESH=[2,3,6,7,9,10,11,12,14];
+  function recommend(){
+    var s=stats(all());
+    if(s.rated<10)return null;
+    var redF=FOUNDATIONS.filter(function(f){return is(f[0],'r');}).length;
+    var techRed=TECH_UX.filter(function(n){return is(n,'r');}).length;
+    if(techRed>=2)redF++;
+    var refreshRed=REFRESH.filter(function(n){return is(n,'r');}).length;
+    var refreshWeak=REFRESH.filter(function(n){return is(n,'r')||is(n,'y');}).length;
+    if(redF>=2||(redF>=1&&s.pct<50))return {key:'redesign',title:'Full redesign',
+      body:'Several foundations (positioning, CMS, visual identity, mobile responsiveness or technical UX) are rated as major gaps. When the foundations are limiting growth, patching individual pages rarely moves pipeline. A ground-up redesign is likely the better investment.'};
+    if(redF===1||refreshRed>=2||refreshWeak>=5)return {key:'refresh',title:'Partial refresh',
+      body:'Your platform and positioning can carry you, but the experience on top needs work: dated visual UI, key pages that need restructuring, or messaging that needs updating for your current ICP. A focused refresh can get you there without starting over.'};
+    return {key:'cro',title:'CRO optimization',
+      body:'Your positioning, CMS and visual identity look solid. Focus on the specific conversion paths, forms and high-traffic pages that are underperforming, and test your way to more pipeline.'};
+  }
+
+  function render(){
+    var A=all(), s=stats(A);
+    document.getElementById('progress-bar').style.width=(s.answered/A.length*100)+'%';
+    document.getElementById('progress-label').textContent=s.answered+' of '+A.length+' answered';
+    SECTIONS.forEach(function(sec){
+      var qs=sec.qs.map(function(q){return q[0];}), ss=stats(qs);
+      document.getElementById('sm-'+sec.id).textContent=ss.answered+' of '+qs.length;
+      qs.forEach(function(n){var i=list.querySelector('i[data-q="'+n+'"]');i.className=state.a[n]||'';});
+      document.getElementById('bp-'+sec.id).textContent=ss.pct==null?'–':ss.pct+'%';
+      document.getElementById('bb-'+sec.id).style.width=(ss.pct||0)+'%';
+    });
+    document.getElementById('score-pct').textContent=s.pct==null?'–':s.pct+'%';
+    var sub=s.answered?('Based on '+s.rated+' rated question'+(s.rated===1?'':'s')+(s.c.n?', with '+s.c.n+' marked “not sure”':'')+'. '+s.c.g+' strong, '+s.c.y+' need work, '+s.c.r+' major gap'+(s.c.r===1?'':'s')+'.'):'Answer a few questions to see your score.';
+    document.getElementById('score-sub').textContent=sub;
+
+    var rec=recommend(), vt=document.getElementById('verdict-title'), vb=document.getElementById('verdict-body');
+    document.querySelectorAll('#paths li').forEach(function(li){li.classList.toggle('on',!!rec&&li.getAttribute('data-path')===rec.key);});
+    if(rec){vt.textContent=rec.title;vb.textContent=rec.body;vb.classList.remove('empty-note');}
+    else{vt.textContent='Keep going';vb.textContent='Rate at least 10 questions and we’ll suggest whether your site needs a full redesign, a partial refresh, or CRO optimization.';vb.classList.add('empty-note');}
+
+    var gaps=A.filter(function(n){return is(n,'r');}).concat(A.filter(function(n){return is(n,'y');})).slice(0,5);
+    var unsure=A.filter(function(n){return is(n,'n');});
+    var gl=document.getElementById('gap-list'); gl.innerHTML='';
+    gaps.forEach(function(n){gl.appendChild(el('li',null,'<span class="dot '+state.a[n]+'" aria-hidden="true">'+(state.a[n]==='r'?'✕':'!')+'</span><span><span class="sr-only">'+LABEL[state.a[n]]+': </span>'+n+'. '+esc(title(n))+'</span>'));});
+    if(unsure.length)gl.appendChild(el('li',null,'<span class="dot n" aria-hidden="true">?</span><span>You weren’t sure about '+unsure.length+' question'+(unsure.length===1?'':'s')+' ('+unsure.join(', ')+'). That’s a good place to start a conversation.</span>'));
+    document.getElementById('gaps').hidden=!(gaps.length||unsure.length);
+
+    if(s.answered===A.length&&!completedFired){completedFired=true;track('complete',{score:s.pct,recommendation:rec&&rec.title,strong:s.c.g,needs_work:s.c.y,major_gap:s.c.r,not_sure:s.c.n});}
+    renderPrint();
+  }
+  function renderPrint(){
+    all().forEach(function(n){
+      var p=document.getElementById('pr'+n), v=state.a[n], note=(state.notes[n]||'').trim();
+      p.textContent='Rating: '+(v?LABEL[v]:'Not answered')+(note?'  |  Notes: '+note:'');
+    });
+  }
+
+  function csv(){
+    var rows=[['Section','#','Question','Rating','Notes']];
+    SECTIONS.forEach(function(sec){sec.qs.forEach(function(q){rows.push([sec.title,q[0],q[1],state.a[q[0]]?LABEL[state.a[q[0]]]:'',state.notes[q[0]]||'']);});});
+    var s=stats(all()), rec=recommend();
+    rows.push([]);rows.push(['Overall score',s.pct==null?'':s.pct+'%']);rows.push(['Starting recommendation',rec?rec.title:'']);
+    rows.push(['Guide',GUIDE]);
+    var text=rows.map(function(r){return r.map(function(c){c=String(c==null?'':c);return /[",\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;}).join(',');}).join('\r\n');
+    var blob=new Blob(['﻿'+text],{type:'text/csv;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='website-audit-checklist.csv';
+    document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
+    track('download_csv');
+  }
+  function doPrint(){track('print');window.print();}
+  ['print-btn','print-btn-2'].forEach(function(id){document.getElementById(id).addEventListener('click',doPrint);});
+  ['csv-btn','csv-btn-2'].forEach(function(id){document.getElementById(id).addEventListener('click',csv);});
+  document.getElementById('reset-btn').addEventListener('click',function(){
+    if(!confirm('Clear all your answers and notes?'))return;
+    state={a:{},notes:{}};completedFired=false;save();
+    form.querySelectorAll('input').forEach(function(i){i.checked=false;});
+    form.querySelectorAll('textarea').forEach(function(t){t.value='';});
+    render();track('reset');
+  });
+
+  document.getElementById('email-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var inp=document.getElementById('email'), err=document.getElementById('email-err'), msg=document.getElementById('form-msg');
+    if(!inp.value||!inp.checkValidity()){err.textContent='Enter a valid email address.';inp.setAttribute('aria-invalid','true');inp.focus();return;}
+    err.textContent='';inp.removeAttribute('aria-invalid');
+    // Prototype: nothing is sent. The live build posts to a HubSpot form (email + scores + recommendation).
+    msg.hidden=false;msg.textContent='Preview only: in the live version, your results would be on their way to '+inp.value+'.';
+    track('email_submit',{followup:this.followup.checked,newsletter:this.newsletter.checked});
+  });
+
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-track]'); if(!a)return;
+    track('click',{target:a.getAttribute('data-track'),location:a.getAttribute('data-track-location')||''});
+  });
+
+  load(); render();
+  track('view');
+})();
+</script>
+</body>
+</html>
