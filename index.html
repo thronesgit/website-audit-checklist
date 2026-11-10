@@ -39,8 +39,7 @@ h1{font-size:40px;margin:64px 0 16px}
 main.frame{padding-top:48px;padding-bottom:64px}
 table{width:100%;border-collapse:collapse;table-layout:fixed}
 thead th{font:600 16px/1.25 var(--sans);text-align:left;padding:0 16px 16px 0;border-bottom:1px solid var(--black)}
-.col-q{width:42%}.col-a{width:320px}
-@media (min-width:900px){.rate{flex-wrap:nowrap}}
+.col-q{width:40%}.col-a{width:380px}
 .sec-row th{padding:48px 0 16px;border-bottom:1px solid var(--black);text-align:left}
 tbody:first-of-type .sec-row th{padding-top:24px}
 .sec-row h2{font-size:24px;margin:0}
@@ -52,10 +51,11 @@ tbody:first-of-type .sec-row th{padding-top:24px}
 .d a{color:var(--black)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 .rate{display:flex;flex-wrap:wrap;gap:8px}
+@media (min-width:1024px){.rate{flex-wrap:nowrap}}
 .rate input{position:absolute;opacity:0;width:1px;height:1px}
 .rate label{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px 12px;border:2px solid var(--control);font-size:16px;font-weight:600;line-height:1.25;cursor:pointer}
 .rate label::before{content:'';width:12px;height:12px;border-radius:50%;flex:0 0 auto}
-.rate .g::before{background:var(--green)}.rate .y::before{background:var(--orange)}.rate .r::before{background:var(--red)}
+.rate .g::before{background:var(--green)}.rate .y::before{background:var(--orange)}.rate .r::before{background:var(--red)}.rate .u::before{background:var(--white);box-shadow:inset 0 0 0 2px var(--grey)}
 .rate input:hover+label{border-color:var(--blue)}
 .rate input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
 .rate input:checked+label{border-color:var(--black);background:var(--black);color:var(--white)}
@@ -67,13 +67,16 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .alt a{color:var(--black)}
 
 /* Stack rows on small screens */
-@media (max-width:899px){
+@media (max-width:1023px){
   thead{display:none}
   table,tbody,tr,.row th,.row td,.sec-row th{display:block;width:100%}
   .row th,.row td{border:0;padding:0 0 16px}
   tr.row{padding:24px 0 8px;border-bottom:1px solid var(--rule)}
   .rate label{flex:1;justify-content:center}
   .nl{display:block;font-weight:600;font-size:16px;margin-bottom:4px}
+}
+@media (max-width:479px){
+  .rate label{flex:1 1 calc(50% - 4px)}
 }
 
 /* Bottom CTA, same build as the site's button */
@@ -150,8 +153,8 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
       ['Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages. <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Check page speed here ↗<span class="sr-only"> (opens in a new tab)</span></a>.'],
       ['Is your site optimized for search indexability and AI discoverability?','Review crawlability, canonical tags, sitemaps, structured data, and content clarity to help search engines access and understand your website.']]]
   ];
-  var RATINGS=[['g','Green'],['y','Yellow'],['r','Red']];
-  var KEY='tiller-audit-checklist', saved={};
+  var RATINGS=[['yes','Yes','g'],['partial','Partial','y'],['no','No','r'],['unsure','Unsure','u']];
+  var KEY='tiller-audit-checklist-v2', saved={};
   try{saved=JSON.parse(localStorage.getItem(KEY));}catch(e){}
   if(!saved||typeof saved!=='object')saved={};
   function store(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
@@ -163,7 +166,7 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
       n++;
       html+='<tr class="row"><th scope="row"><p class="q" id="q'+n+'">'+n+'. '+q[0]+'</p><p class="d">'+q[1]+'</p></th>'
         +'<td><fieldset aria-labelledby="q'+n+'"><div class="rate">'
-        +RATINGS.map(function(r){var id='q'+n+r[0];return '<input type="radio" name="q'+n+'" id="'+id+'" value="'+r[0]+'"'+(saved['q'+n]===r[0]?' checked':'')+'><label class="'+r[0]+'" for="'+id+'">'+r[1]+'</label>';}).join('')
+        +RATINGS.map(function(r){var id='q'+n+'-'+r[0];return '<input type="radio" name="q'+n+'" id="'+id+'" value="'+r[0]+'"'+(saved['q'+n]===r[0]?' checked':'')+'><label class="'+r[2]+'" for="'+id+'">'+r[1]+'</label>';}).join('')
         +'</div></fieldset></td>'
         +'<td><span class="nl" id="nl'+n+'">Notes</span><textarea name="n'+n+'" aria-labelledby="nl'+n+' q'+n+'"></textarea></td></tr>';
     });
