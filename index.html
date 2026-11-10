@@ -5,74 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Website Redesign Audit Checklist | Tiller Digital</title>
-<link rel="icon" href="tiller.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --black:#000;--white:#fff;--orange:#FFA100;--blue:#006FF6;--red:#F43D00;--green:#2BB673;
-  --grey:#666;--rule:#ccc;
+  --grey:#666;--rule:#ccc;--control:#8a8a8a;
   --sans:'bassen','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --serif:'tiempos','Source Serif 4',Georgia,serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;font:16px/1.6 var(--sans);color:var(--black);background:var(--white)}
-.frame{max-width:1104px;margin:0 auto;padding:0 16px}
+body{margin:0;font:16px/1.75 var(--sans);color:var(--black);background:var(--white)}
+@media (min-width:900px){body{font-size:18px}}
+.frame{max-width:1156px;margin:0 auto;padding:0 16px}
 @media (min-width:900px){.frame{padding:0 32px}}
-h1,h2,th{font-family:var(--serif);font-weight:400;letter-spacing:.03em;line-height:1.25}
+h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:.03em;line-height:1.25}
 a{color:inherit;font-weight:600;text-underline-offset:.3em;text-decoration-thickness:2px}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 /* Header */
-.head{background:var(--black);color:var(--white);padding:24px 0 48px}
+.head{background:var(--black);color:var(--white);padding:32px 0 64px}
 .head :focus-visible{outline-color:var(--orange)}
 .logo{display:inline-block;width:88px;height:28px}
 .logo img{display:block;width:100%;height:100%}
-h1{font-size:40px;margin:48px 0 12px}
+h1{font-size:40px;margin:64px 0 16px}
 @media (min-width:900px){h1{font-size:62px}}
-.head p{margin:0;max-width:60ch;color:rgb(255 255 255 / .85)}
+.head p{margin:0;max-width:60ch}
 
 /* Checklist table */
-main{padding:48px 0 64px}
 main.frame{padding-top:48px;padding-bottom:64px}
-table{width:100%;border-collapse:collapse}
-thead th{font:600 14px/1.4 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:0 16px 12px 0;border-bottom:2px solid var(--black)}
-th.sec{font-size:26px;text-align:left;padding:40px 0 12px;border-bottom:2px solid var(--black)}
-tbody tr:first-child th.sec{padding-top:24px}
-td{vertical-align:top;padding:20px 16px 20px 0;border-bottom:1px solid var(--rule)}
-td:last-child{padding-right:0}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+thead th{font:600 16px/1.25 var(--sans);text-align:left;padding:0 16px 16px 0;border-bottom:1px solid var(--black)}
+.col-q{width:42%}.col-a{width:320px}
+@media (min-width:900px){.rate{flex-wrap:nowrap}}
+.sec-row th{padding:48px 0 16px;border-bottom:1px solid var(--black);text-align:left}
+tbody:first-of-type .sec-row th{padding-top:24px}
+.sec-row h2{font-size:24px;margin:0}
+@media (min-width:900px){.sec-row h2{font-size:36px}}
+.row th,.row td{vertical-align:top;text-align:left;font-weight:400;padding:24px 16px 24px 0;border-bottom:1px solid var(--rule)}
+.row td:last-child{padding-right:0}
 .q{font-weight:600;margin:0 0 4px}
-.d{margin:0;color:#333;font-size:15px}
-.col-q{width:52%}.col-a{width:20%}
+.d{margin:0;font-size:16px;color:var(--grey)}
+.d a{color:var(--black)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
-.rate{display:flex;gap:6px}
+.rate{display:flex;flex-wrap:wrap;gap:8px}
 .rate input{position:absolute;opacity:0;width:1px;height:1px}
-.rate label{display:flex;align-items:center;gap:6px;min-height:40px;padding:6px 10px;border:2px solid var(--rule);font-size:14px;font-weight:600;cursor:pointer}
+.rate label{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px 12px;border:2px solid var(--control);font-size:16px;font-weight:600;line-height:1.25;cursor:pointer}
 .rate label::before{content:'';width:12px;height:12px;border-radius:50%;flex:0 0 auto}
 .rate .g::before{background:var(--green)}.rate .y::before{background:var(--orange)}.rate .r::before{background:var(--red)}
-.rate input:hover+label{border-color:var(--black)}
+.rate input:hover+label{border-color:var(--blue)}
 .rate input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
 .rate input:checked+label{border-color:var(--black);background:var(--black);color:var(--white)}
-textarea{display:block;width:100%;min-height:72px;padding:8px 10px;font:15px/1.5 var(--sans);border:2px solid var(--rule);border-radius:0;resize:vertical}
+.nl{display:none}
+textarea{display:block;width:100%;min-height:80px;padding:12px 16px;font:16px/1.5 var(--sans);border:2px solid var(--control);border-radius:0;resize:vertical}
 textarea:focus{border-color:var(--black);outline:none}
 textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.alt{margin:24px 0 0;font-size:15px;color:var(--grey)}
+.alt{margin:24px 0 0;font-size:16px;color:var(--grey)}
+.alt a{color:var(--black)}
 
 /* Stack rows on small screens */
-@media (max-width:759px){
+@media (max-width:899px){
   thead{display:none}
-  table,tbody,tr,td,th.sec{display:block;width:100%}
-  td{border:0;padding:0 0 12px}
-  tr.row{padding:20px 0 8px;border-bottom:1px solid var(--rule)}
-  .col-q,.col-a{width:auto}
+  table,tbody,tr,.row th,.row td,.sec-row th{display:block;width:100%}
+  .row th,.row td{border:0;padding:0 0 16px}
+  tr.row{padding:24px 0 8px;border-bottom:1px solid var(--rule)}
+  .rate label{flex:1;justify-content:center}
+  .nl{display:block;font-weight:600;font-size:16px;margin-bottom:4px}
 }
 
 /* Bottom CTA, same build as the site's button */
 .cta{background:var(--black);color:var(--white);padding:64px 0}
-.cta h2{font-size:28px;margin:0 0 24px;max-width:24ch}
-@media (min-width:900px){.cta h2{font-size:40px}}
+.cta h2{font-size:28px;margin:0 0 32px;max-width:24ch}
+@media (min-width:900px){.cta{padding:96px 0}.cta h2{font-size:48px;max-width:20em}}
 .cta :focus-visible{outline-color:var(--orange)}
 .btn{display:inline-flex;align-items:stretch;background:var(--orange);color:var(--black);font:600 16px/1.25 var(--sans);text-decoration:none;transition:background .25s,color .25s}
 .btn span:first-child{padding:14px 20px;display:flex;align-items:center}
@@ -81,10 +88,12 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .btn:hover{background:var(--blue);color:var(--white)}
 
 @media print{
-  .head{background:none;color:#000;padding:0}.head p{color:#000}
+  .head{background:none;color:#000;padding:0}.logo img{filter:invert(1)}
   .cta{background:none;color:#000;padding:16px 0}.btn,.alt{display:none}
-  .rate input:checked+label{background:#fff;color:#000;border-color:#000}
-  .rate label::before,.rate input:checked+label{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .rate input:checked+label{background:#fff;color:#000;border-color:#000;font-weight:700}
+  .rate input:checked+label::after{content:'✓'}
+  .rate label::before{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  textarea{field-sizing:content;resize:none;border-color:#000}
   tr{break-inside:avoid}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -100,11 +109,10 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 </header>
 
 <main class="frame">
-  <table>
+  <table id="checklist">
     <thead><tr><th class="col-q" scope="col">Questions</th><th class="col-a" scope="col">Assessment</th><th scope="col">Assessment notes</th></tr></thead>
-    <tbody id="rows"></tbody>
   </table>
-  <p class="alt">Need it offline? <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/copy" target="_blank" rel="noopener">Copy the Google Sheet<span class="sr-only"> (opens in a new tab)</span></a> or <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/export?format=xlsx">download it for Excel</a>.</p>
+  <p class="alt">Need it offline? <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/copy" target="_blank" rel="noopener">Copy the Google Sheet ↗<span class="sr-only"> (opens in a new tab)</span></a> or <a href="https://docs.google.com/spreadsheets/d/1IpfE44POwnz_k2zmmheIt3YMlvXFUgvtczlM_8YyWmo/export?format=xlsx">download the .xlsx</a>.</p>
 </main>
 
 <section class="cta">
@@ -132,38 +140,39 @@ textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
     ['User experience and visual UI design',[
       ['Does your visual identity set you apart in a sea of software sameness?','Typography, color, visual hierarchy, and design assets should reinforce your brand’s distinctiveness while making the experience easy to navigate.'],
       ['Do you effectively showcase the actual product experience?','Use clear product screenshots, short videos, and interactive tours to help buyers understand what your software looks like and how it works.'],
-      ['Does your site comply with modern WCAG accessibility standards?','Review color contrast, keyboard navigation, screen reader compatibility, alternative text, and focus indicators against WCAG 2.2 Level AA guidelines.'],
+      ['Does your site comply with modern WCAG accessibility standards?','Review color contrast, keyboard navigation, screen reader compatibility, alternative text, and focus indicators against WCAG 2.2 Level AA guidelines. <a href="https://wcag.com/" target="_blank" rel="noopener">Begin your accessibility audit here ↗<span class="sr-only"> (opens in a new tab)</span></a>.'],
       ['Does your site follow design best practices (heuristics)?','Clear visual hierarchy, predictable navigation, adequate whitespace, and helpful error messages should make your website intuitive to use.']]],
     ['Web architecture, MarTech, and technical readiness',[
       ['Have you planned for SEO during a website redesign to protect rankings?','Audit existing URLs, preserve high-performing content, map redirects, and monitor search performance to avoid losing valuable organic visibility.'],
       ['Can your marketing team autonomously manage and scale the CMS?','Your CMS should let marketers publish and update pages independently while maintaining design consistency and supporting future growth.'],
       ['Is your site responsive on mobile, tablet, and desktop?','Navigation, forms, content, and layouts should remain accessible and easy to use across screen sizes without awkward scrolling or layout shifts.'],
       ['Does your website integrate well with your CRM and MarTech stack?','Forms, CRM records, marketing automation, and tracking tools should work together to support lead routing, follow-up, and accurate pipeline reporting.'],
-      ['Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages.'],
+      ['Is your load speed optimized according to Core Web Vitals guidelines?','Evaluate loading speed, interaction responsiveness, and layout stability using real-user data and technical diagnostics, prioritizing high-value pages. <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Check page speed here ↗<span class="sr-only"> (opens in a new tab)</span></a>.'],
       ['Is your site optimized for search indexability and AI discoverability?','Review crawlability, canonical tags, sitemaps, structured data, and content clarity to help search engines access and understand your website.']]]
   ];
   var RATINGS=[['g','Green'],['y','Yellow'],['r','Red']];
   var KEY='tiller-audit-checklist', saved={};
-  try{saved=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
+  try{saved=JSON.parse(localStorage.getItem(KEY));}catch(e){}
+  if(!saved||typeof saved!=='object')saved={};
   function store(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
 
   var html='', n=0;
   SECTIONS.forEach(function(s){
-    html+='<tr><th class="sec" colspan="3" scope="colgroup">'+s[0]+'</th></tr>';
+    html+='<tbody><tr class="sec-row"><th colspan="3" scope="rowgroup"><h2>'+s[0]+'</h2></th></tr>';
     s[1].forEach(function(q){
       n++;
-      html+='<tr class="row"><td class="col-q"><p class="q" id="q'+n+'">'+n+'. '+q[0]+'</p><p class="d">'+q[1]+'</p></td>'
-        +'<td class="col-a"><fieldset aria-labelledby="q'+n+'"><legend class="sr-only">Assessment</legend><div class="rate">'
+      html+='<tr class="row"><th scope="row"><p class="q" id="q'+n+'">'+n+'. '+q[0]+'</p><p class="d">'+q[1]+'</p></th>'
+        +'<td><fieldset aria-labelledby="q'+n+'"><div class="rate">'
         +RATINGS.map(function(r){var id='q'+n+r[0];return '<input type="radio" name="q'+n+'" id="'+id+'" value="'+r[0]+'"'+(saved['q'+n]===r[0]?' checked':'')+'><label class="'+r[0]+'" for="'+id+'">'+r[1]+'</label>';}).join('')
         +'</div></fieldset></td>'
-        +'<td><textarea name="n'+n+'" aria-label="Assessment notes for question '+n+'"></textarea></td></tr>';
+        +'<td><span class="nl" id="nl'+n+'">Notes</span><textarea name="n'+n+'" aria-labelledby="nl'+n+' q'+n+'"></textarea></td></tr>';
     });
+    html+='</tbody>';
   });
-  var rows=document.getElementById('rows');
-  rows.innerHTML=html;
-  rows.querySelectorAll('textarea').forEach(function(t){t.value=saved[t.name]||'';});
-  rows.addEventListener('input',function(e){var t=e.target;saved[t.name]=t.value;store();});
-  rows.addEventListener('change',function(e){var t=e.target;saved[t.name]=t.value;store();});
+  var table=document.getElementById('checklist');
+  table.insertAdjacentHTML('beforeend',html);
+  table.querySelectorAll('textarea').forEach(function(t){t.value=saved[t.name]||'';});
+  table.addEventListener('input',function(e){var t=e.target;if(!t.name)return;saved[t.name]=t.value;store();});
 })();
 </script>
 </body>
