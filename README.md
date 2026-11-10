@@ -2,7 +2,7 @@
 
 The fillable form for the guide
 [20 questions to ask before a website redesign](https://tillerdigital.com/guides/website-audit-checklist-20-questions-to-ask-before-a-website-redesign/):
-20 questions with a Yes / Partial / No / Unsure dropdown and notes, PDF and XLSX downloads of the answers, and the Book a Call CTA.
+20 questions with a Yes / Partial / No / Unsure dropdown and notes, plus PDF and XLSX downloads of the answers. The page CTA lives in the CMS, outside the form.
 It has no header or footer and a transparent background, so it sits inside an existing page's content container.
 
 ## Embed
